@@ -1,0 +1,467 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F9EF20DF1BC65E4D0088B975 /* DateHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = F9EF20DE1BC65E4D0088B975 /* DateHelper.m */; settings = {ASSET_TAGS = (); }; };
+		F9F1F95A1BC5018600E9A4AE /* NSDate+CalculateDay.m in Sources */ = {isa = PBXBuildFile; fileRef = F9F1F9591BC5018600E9A4AE /* NSDate+CalculateDay.m */; settings = {ASSET_TAGS = (); }; };
+		F9F5D6051BC40D1A004035C8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F9F5D6041BC40D1A004035C8 /* main.m */; };
+		F9F5D6081BC40D1A004035C8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F9F5D6071BC40D1A004035C8 /* AppDelegate.m */; };
+		F9F5D60B1BC40D1A004035C8 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F9F5D60A1BC40D1A004035C8 /* ViewController.m */; };
+		F9F5D60E1BC40D1A004035C8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F9F5D60C1BC40D1A004035C8 /* Main.storyboard */; };
+		F9F5D6101BC40D1A004035C8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F9F5D60F1BC40D1A004035C8 /* Assets.xcassets */; };
+		F9F5D6131BC40D1A004035C8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F9F5D6111BC40D1A004035C8 /* LaunchScreen.storyboard */; };
+		F9F5D61E1BC40D1A004035C8 /* KMDatePickerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F9F5D61D1BC40D1A004035C8 /* KMDatePickerTests.m */; };
+		F9F5D62B1BC41147004035C8 /* KMDatePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = F9F5D62A1BC41147004035C8 /* KMDatePicker.m */; settings = {ASSET_TAGS = (); }; };
+		F9F5D62E1BC413C3004035C8 /* KMDatePickerDateModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F9F5D62D1BC413C3004035C8 /* KMDatePickerDateModel.m */; settings = {ASSET_TAGS = (); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F9F5D61A1BC40D1A004035C8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F9F5D5F81BC40D1A004035C8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F9F5D5FF1BC40D1A004035C8;
+			remoteInfo = KMDatePicker;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		F9EF20DD1BC65E4D0088B975 /* DateHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DateHelper.h; sourceTree = "<group>"; };
+		F9EF20DE1BC65E4D0088B975 /* DateHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DateHelper.m; sourceTree = "<group>"; };
+		F9F1F9581BC5018600E9A4AE /* NSDate+CalculateDay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+CalculateDay.h"; sourceTree = "<group>"; };
+		F9F1F9591BC5018600E9A4AE /* NSDate+CalculateDay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+CalculateDay.m"; sourceTree = "<group>"; };
+		F9F5D6001BC40D1A004035C8 /* KMDatePicker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KMDatePicker.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F9F5D6041BC40D1A004035C8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		F9F5D6061BC40D1A004035C8 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		F9F5D6071BC40D1A004035C8 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		F9F5D6091BC40D1A004035C8 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		F9F5D60A1BC40D1A004035C8 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		F9F5D60D1BC40D1A004035C8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		F9F5D60F1BC40D1A004035C8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F9F5D6121BC40D1A004035C8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		F9F5D6141BC40D1A004035C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F9F5D6191BC40D1A004035C8 /* KMDatePickerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KMDatePickerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F9F5D61D1BC40D1A004035C8 /* KMDatePickerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KMDatePickerTests.m; sourceTree = "<group>"; };
+		F9F5D61F1BC40D1A004035C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F9F5D6291BC41147004035C8 /* KMDatePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMDatePicker.h; sourceTree = "<group>"; };
+		F9F5D62A1BC41147004035C8 /* KMDatePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMDatePicker.m; sourceTree = "<group>"; };
+		F9F5D62C1BC413C3004035C8 /* KMDatePickerDateModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMDatePickerDateModel.h; sourceTree = "<group>"; };
+		F9F5D62D1BC413C3004035C8 /* KMDatePickerDateModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMDatePickerDateModel.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F9F5D5FD1BC40D1A004035C8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F9F5D6161BC40D1A004035C8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F9F5D5F71BC40D1A004035C8 = {
+			isa = PBXGroup;
+			children = (
+				F9F5D6021BC40D1A004035C8 /* KMDatePicker */,
+				F9F5D61C1BC40D1A004035C8 /* KMDatePickerTests */,
+				F9F5D6011BC40D1A004035C8 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F9F5D6011BC40D1A004035C8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F9F5D6001BC40D1A004035C8 /* KMDatePicker.app */,
+				F9F5D6191BC40D1A004035C8 /* KMDatePickerTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F9F5D6021BC40D1A004035C8 /* KMDatePicker */ = {
+			isa = PBXGroup;
+			children = (
+				F9F5D6281BC410C9004035C8 /* Packaged Code */,
+				F9F5D6061BC40D1A004035C8 /* AppDelegate.h */,
+				F9F5D6071BC40D1A004035C8 /* AppDelegate.m */,
+				F9F5D6091BC40D1A004035C8 /* ViewController.h */,
+				F9F5D60A1BC40D1A004035C8 /* ViewController.m */,
+				F9F5D60C1BC40D1A004035C8 /* Main.storyboard */,
+				F9F5D60F1BC40D1A004035C8 /* Assets.xcassets */,
+				F9F5D6111BC40D1A004035C8 /* LaunchScreen.storyboard */,
+				F9F5D6141BC40D1A004035C8 /* Info.plist */,
+				F9F5D6031BC40D1A004035C8 /* Supporting Files */,
+			);
+			path = KMDatePicker;
+			sourceTree = "<group>";
+		};
+		F9F5D6031BC40D1A004035C8 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F9F5D6041BC40D1A004035C8 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F9F5D61C1BC40D1A004035C8 /* KMDatePickerTests */ = {
+			isa = PBXGroup;
+			children = (
+				F9F5D61D1BC40D1A004035C8 /* KMDatePickerTests.m */,
+				F9F5D61F1BC40D1A004035C8 /* Info.plist */,
+			);
+			path = KMDatePickerTests;
+			sourceTree = "<group>";
+		};
+		F9F5D6281BC410C9004035C8 /* Packaged Code */ = {
+			isa = PBXGroup;
+			children = (
+				F9F1F9581BC5018600E9A4AE /* NSDate+CalculateDay.h */,
+				F9F1F9591BC5018600E9A4AE /* NSDate+CalculateDay.m */,
+				F9EF20DD1BC65E4D0088B975 /* DateHelper.h */,
+				F9EF20DE1BC65E4D0088B975 /* DateHelper.m */,
+				F9F5D62C1BC413C3004035C8 /* KMDatePickerDateModel.h */,
+				F9F5D62D1BC413C3004035C8 /* KMDatePickerDateModel.m */,
+				F9F5D6291BC41147004035C8 /* KMDatePicker.h */,
+				F9F5D62A1BC41147004035C8 /* KMDatePicker.m */,
+			);
+			name = "Packaged Code";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F9F5D5FF1BC40D1A004035C8 /* KMDatePicker */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F9F5D6221BC40D1A004035C8 /* Build configuration list for PBXNativeTarget "KMDatePicker" */;
+			buildPhases = (
+				F9F5D5FC1BC40D1A004035C8 /* Sources */,
+				F9F5D5FD1BC40D1A004035C8 /* Frameworks */,
+				F9F5D5FE1BC40D1A004035C8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = KMDatePicker;
+			productName = KMDatePicker;
+			productReference = F9F5D6001BC40D1A004035C8 /* KMDatePicker.app */;
+			productType = "com.apple.product-type.application";
+		};
+		F9F5D6181BC40D1A004035C8 /* KMDatePickerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F9F5D6251BC40D1A004035C8 /* Build configuration list for PBXNativeTarget "KMDatePickerTests" */;
+			buildPhases = (
+				F9F5D6151BC40D1A004035C8 /* Sources */,
+				F9F5D6161BC40D1A004035C8 /* Frameworks */,
+				F9F5D6171BC40D1A004035C8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F9F5D61B1BC40D1A004035C8 /* PBXTargetDependency */,
+			);
+			name = KMDatePickerTests;
+			productName = KMDatePickerTests;
+			productReference = F9F5D6191BC40D1A004035C8 /* KMDatePickerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F9F5D5F81BC40D1A004035C8 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0700;
+				ORGANIZATIONNAME = Kenmu;
+				TargetAttributes = {
+					F9F5D5FF1BC40D1A004035C8 = {
+						CreatedOnToolsVersion = 7.0;
+						DevelopmentTeam = R7N88J7F7X;
+					};
+					F9F5D6181BC40D1A004035C8 = {
+						CreatedOnToolsVersion = 7.0;
+						DevelopmentTeam = R7N88J7F7X;
+						TestTargetID = F9F5D5FF1BC40D1A004035C8;
+					};
+				};
+			};
+			buildConfigurationList = F9F5D5FB1BC40D1A004035C8 /* Build configuration list for PBXProject "KMDatePicker" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F9F5D5F71BC40D1A004035C8;
+			productRefGroup = F9F5D6011BC40D1A004035C8 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F9F5D5FF1BC40D1A004035C8 /* KMDatePicker */,
+				F9F5D6181BC40D1A004035C8 /* KMDatePickerTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F9F5D5FE1BC40D1A004035C8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F9F5D6131BC40D1A004035C8 /* LaunchScreen.storyboard in Resources */,
+				F9F5D6101BC40D1A004035C8 /* Assets.xcassets in Resources */,
+				F9F5D60E1BC40D1A004035C8 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F9F5D6171BC40D1A004035C8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F9F5D5FC1BC40D1A004035C8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F9F5D62E1BC413C3004035C8 /* KMDatePickerDateModel.m in Sources */,
+				F9F5D60B1BC40D1A004035C8 /* ViewController.m in Sources */,
+				F9F5D62B1BC41147004035C8 /* KMDatePicker.m in Sources */,
+				F9F5D6081BC40D1A004035C8 /* AppDelegate.m in Sources */,
+				F9EF20DF1BC65E4D0088B975 /* DateHelper.m in Sources */,
+				F9F1F95A1BC5018600E9A4AE /* NSDate+CalculateDay.m in Sources */,
+				F9F5D6051BC40D1A004035C8 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F9F5D6151BC40D1A004035C8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F9F5D61E1BC40D1A004035C8 /* KMDatePickerTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F9F5D61B1BC40D1A004035C8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F9F5D5FF1BC40D1A004035C8 /* KMDatePicker */;
+			targetProxy = F9F5D61A1BC40D1A004035C8 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		F9F5D60C1BC40D1A004035C8 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F9F5D60D1BC40D1A004035C8 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		F9F5D6111BC40D1A004035C8 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F9F5D6121BC40D1A004035C8 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		F9F5D6201BC40D1A004035C8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		F9F5D6211BC40D1A004035C8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F9F5D6231BC40D1A004035C8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = BrandAsset;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				INFOPLIST_FILE = KMDatePicker/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_BUNDLE_IDENTIFIER = com.kenmu.KMDatePicker;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		F9F5D6241BC40D1A004035C8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = BrandAsset;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				INFOPLIST_FILE = KMDatePicker/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_BUNDLE_IDENTIFIER = com.kenmu.KMDatePicker;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		F9F5D6261BC40D1A004035C8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = KMDatePickerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.kenmu.KMDatePickerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KMDatePicker.app/KMDatePicker";
+			};
+			name = Debug;
+		};
+		F9F5D6271BC40D1A004035C8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = KMDatePickerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.kenmu.KMDatePickerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KMDatePicker.app/KMDatePicker";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F9F5D5FB1BC40D1A004035C8 /* Build configuration list for PBXProject "KMDatePicker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F9F5D6201BC40D1A004035C8 /* Debug */,
+				F9F5D6211BC40D1A004035C8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F9F5D6221BC40D1A004035C8 /* Build configuration list for PBXNativeTarget "KMDatePicker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F9F5D6231BC40D1A004035C8 /* Debug */,
+				F9F5D6241BC40D1A004035C8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F9F5D6251BC40D1A004035C8 /* Build configuration list for PBXNativeTarget "KMDatePickerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F9F5D6261BC40D1A004035C8 /* Debug */,
+				F9F5D6271BC40D1A004035C8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F9F5D5F81BC40D1A004035C8 /* Project object */;
+}

@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="YearMonthDayHourMinute" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RU4-aD-bI3">
+                                <rect key="frame" x="180" y="58" width="240" height="30"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="9Oi-OR-Ru9"/>
+                                    <constraint firstAttribute="height" constant="30" id="Wsa-Pd-EDg"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="MonthDayHourMinute" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KFz-2Q-yIQ">
+                                <rect key="frame" x="180" y="170" width="240" height="30"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="Qxz-uf-Ngd"/>
+                                    <constraint firstAttribute="width" constant="240" id="pTd-xH-c6N"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="YearMonthDay" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="V6m-6E-ZuV">
+                                <rect key="frame" x="180" y="113" width="240" height="30"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="CzE-ap-TTQ"/>
+                                    <constraint firstAttribute="width" constant="240" id="eCi-kT-2tg"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="HourMinute" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Neu-Vj-fG0">
+                                <rect key="frame" x="180" y="228" width="240" height="30"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="XBx-GA-ad2"/>
+                                    <constraint firstAttribute="height" constant="30" id="tON-2M-EMP"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="LimitedDate" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vt1-Aj-i6Y">
+                                <rect key="frame" x="180" y="280" width="240" height="30"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="QSC-Me-tpx"/>
+                                    <constraint firstAttribute="width" constant="240" id="X0a-1i-Z2T"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Neu-Vj-fG0" firstAttribute="top" secondItem="KFz-2Q-yIQ" secondAttribute="bottom" constant="28" id="4Wp-rC-NJF"/>
+                            <constraint firstItem="RU4-aD-bI3" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="38" id="EU7-1f-tVl"/>
+                            <constraint firstItem="RU4-aD-bI3" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="FUG-e6-Qhi"/>
+                            <constraint firstItem="Neu-Vj-fG0" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="HRH-7N-oaY"/>
+                            <constraint firstItem="V6m-6E-ZuV" firstAttribute="top" secondItem="RU4-aD-bI3" secondAttribute="bottom" constant="25" id="Ind-TZ-Rzm"/>
+                            <constraint firstItem="V6m-6E-ZuV" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="JTW-zd-LlI"/>
+                            <constraint firstItem="KFz-2Q-yIQ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="LpF-Jq-wwJ"/>
+                            <constraint firstItem="KFz-2Q-yIQ" firstAttribute="top" secondItem="V6m-6E-ZuV" secondAttribute="bottom" constant="27" id="TyY-DA-rn2"/>
+                            <constraint firstItem="vt1-Aj-i6Y" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="g0Z-bZ-p3g"/>
+                            <constraint firstItem="vt1-Aj-i6Y" firstAttribute="top" secondItem="Neu-Vj-fG0" secondAttribute="bottom" constant="22" id="tyA-YZ-slJ"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="txtFHourMinute" destination="Neu-Vj-fG0" id="wPd-UK-nh5"/>
+                        <outlet property="txtFLimitedDate" destination="vt1-Aj-i6Y" id="MzT-tx-thY"/>
+                        <outlet property="txtFMonthDayHourMinute" destination="KFz-2Q-yIQ" id="Hp6-Ve-tYI"/>
+                        <outlet property="txtFYearMonthDay" destination="V6m-6E-ZuV" id="0cJ-v8-xh3"/>
+                        <outlet property="txtFYearMonthDayHourMinute" destination="RU4-aD-bI3" id="neo-JQ-wV5"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+    </scenes>
+</document>
