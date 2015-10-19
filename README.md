@@ -1,6 +1,6 @@
 # KMDatePicker
 
-**自定义支持多种格式可控范围的时间选择器控件**
+#### 自定义支持多种格式可控范围的时间选择器控件
 
 支持四种格式，可控制可选时间范围，如下：
 
@@ -11,7 +11,9 @@
 
 
 
-**效果如下：**
+
+
+## 效果
 
 iPhone 5s
 
@@ -27,9 +29,9 @@ iPhone 6 Plus
 
 
 
-**版权**
+
+
+## 版权
 
 KMDatePicker is published under MIT License. See the LICENSE file for more.
-
-
 
