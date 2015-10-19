@@ -2,7 +2,7 @@
 //  KMDatePickerDateModel.h
 //  KMDatePicker
 //
-//  Created by 黄建武 on 15/10/6.
+//  Created by KenmuHuang on 15/10/6.
 //  Copyright © 2015年 Kenmu. All rights reserved.
 //
 

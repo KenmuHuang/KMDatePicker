@@ -2,7 +2,7 @@
 //  NSDate+CalculateDay.h
 //  OCNSCalendar
 //
-//  Created by 黄建武 on 15/10/7.
+//  Created by KenmuHuang on 15/10/7.
 //  Copyright © 2015年 Kenmu. All rights reserved.
 //
 

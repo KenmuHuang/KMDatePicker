@@ -2,7 +2,7 @@
 //  KMDatePicker.m
 //  KMDatePicker:（自定义支持多种格式可控范围的时间选择器控件）
 //
-//  Created by 黄建武 on 15/10/6.
+//  Created by KenmuHuang on 15/10/6.
 //  Copyright © 2015年 Kenmu. All rights reserved.
 //
 
