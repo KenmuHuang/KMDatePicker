@@ -26,4 +26,14 @@
  */
 + (NSDate *)dateFromString:(NSString *)dateStr withFormat:(NSString *)format;
 
+/**
+ *  根据时间和其格式，获取对应的时间字符串
+ *
+ *  @param date    时间
+ *  @param format  时间字符串格式（默认值为@"yyyy-MM-dd HH:mm"）
+ *
+ *  @return 对应的时间字符串
+ */
++ (NSString *)dateToString:(NSDate *)date withFormat:(NSString *)format;
+
 @end

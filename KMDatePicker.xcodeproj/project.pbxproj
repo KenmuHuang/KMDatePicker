@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		F9EF20DF1BC65E4D0088B975 /* DateHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = F9EF20DE1BC65E4D0088B975 /* DateHelper.m */; settings = {ASSET_TAGS = (); }; };
-		F9F1F95A1BC5018600E9A4AE /* NSDate+CalculateDay.m in Sources */ = {isa = PBXBuildFile; fileRef = F9F1F9591BC5018600E9A4AE /* NSDate+CalculateDay.m */; settings = {ASSET_TAGS = (); }; };
+		F9EF20DF1BC65E4D0088B975 /* DateHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = F9EF20DE1BC65E4D0088B975 /* DateHelper.m */; };
+		F9F1F95A1BC5018600E9A4AE /* NSDate+CalculateDay.m in Sources */ = {isa = PBXBuildFile; fileRef = F9F1F9591BC5018600E9A4AE /* NSDate+CalculateDay.m */; };
 		F9F5D6051BC40D1A004035C8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F9F5D6041BC40D1A004035C8 /* main.m */; };
 		F9F5D6081BC40D1A004035C8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F9F5D6071BC40D1A004035C8 /* AppDelegate.m */; };
 		F9F5D60B1BC40D1A004035C8 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F9F5D60A1BC40D1A004035C8 /* ViewController.m */; };
@@ -16,8 +16,8 @@
 		F9F5D6101BC40D1A004035C8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F9F5D60F1BC40D1A004035C8 /* Assets.xcassets */; };
 		F9F5D6131BC40D1A004035C8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F9F5D6111BC40D1A004035C8 /* LaunchScreen.storyboard */; };
 		F9F5D61E1BC40D1A004035C8 /* KMDatePickerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F9F5D61D1BC40D1A004035C8 /* KMDatePickerTests.m */; };
-		F9F5D62B1BC41147004035C8 /* KMDatePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = F9F5D62A1BC41147004035C8 /* KMDatePicker.m */; settings = {ASSET_TAGS = (); }; };
-		F9F5D62E1BC413C3004035C8 /* KMDatePickerDateModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F9F5D62D1BC413C3004035C8 /* KMDatePickerDateModel.m */; settings = {ASSET_TAGS = (); }; };
+		F9F5D62B1BC41147004035C8 /* KMDatePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = F9F5D62A1BC41147004035C8 /* KMDatePicker.m */; };
+		F9F5D62E1BC413C3004035C8 /* KMDatePickerDateModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F9F5D62D1BC413C3004035C8 /* KMDatePickerDateModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -127,10 +127,10 @@
 		F9F5D6281BC410C9004035C8 /* Packaged Code */ = {
 			isa = PBXGroup;
 			children = (
-				F9F1F9581BC5018600E9A4AE /* NSDate+CalculateDay.h */,
-				F9F1F9591BC5018600E9A4AE /* NSDate+CalculateDay.m */,
 				F9EF20DD1BC65E4D0088B975 /* DateHelper.h */,
 				F9EF20DE1BC65E4D0088B975 /* DateHelper.m */,
+				F9F1F9581BC5018600E9A4AE /* NSDate+CalculateDay.h */,
+				F9F1F9591BC5018600E9A4AE /* NSDate+CalculateDay.m */,
 				F9F5D62C1BC413C3004035C8 /* KMDatePickerDateModel.h */,
 				F9F5D62D1BC413C3004035C8 /* KMDatePickerDateModel.m */,
 				F9F5D6291BC41147004035C8 /* KMDatePicker.h */,
