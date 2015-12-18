@@ -9,12 +9,12 @@
 #import <Foundation/Foundation.h>
 
 @interface KMDatePickerDateModel : NSObject
-@property (copy, nonatomic) NSString *year;
-@property (copy, nonatomic) NSString *month;
-@property (copy, nonatomic) NSString *day;
-@property (copy, nonatomic) NSString *hour;
-@property (copy, nonatomic) NSString *minute;
-@property (copy, nonatomic) NSString *weekdayName;
+@property (nonatomic, copy) NSString *year;
+@property (nonatomic, copy) NSString *month;
+@property (nonatomic, copy) NSString *day;
+@property (nonatomic, copy) NSString *hour;
+@property (nonatomic, copy) NSString *minute;
+@property (nonatomic, copy) NSString *weekdayName;
 
 - (instancetype)initWithDate:(NSDate *)date;
 

@@ -32,7 +32,7 @@
     NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
     unsigned unitFlags = NSCalendarUnitYear | NSCalendarUnitMonth |  NSCalendarUnitDay | NSCalendarUnitHour | NSCalendarUnitMinute | NSCalendarUnitSecond;
     NSDateComponents *comps = [gregorian components:unitFlags fromDate:self];
-    [comps setTimeZone:[NSTimeZone timeZoneWithAbbreviation:@"UTC"]]; //使用UTC或GMT解决时区相差8小时的问题
+    [comps setTimeZone:[NSTimeZone timeZoneWithAbbreviation:@"UTC"]]; // 使用UTC或GMT解决时区相差8小时的问题
     [comps setDay:1];
     
     return [gregorian dateFromComponents:comps];
@@ -42,7 +42,7 @@
     NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
     unsigned unitFlags = NSCalendarUnitYear | NSCalendarUnitMonth |  NSCalendarUnitDay | NSCalendarUnitHour | NSCalendarUnitMinute | NSCalendarUnitSecond;
     NSDateComponents *comps = [gregorian components:unitFlags fromDate:self];
-    [comps setTimeZone:[NSTimeZone timeZoneWithAbbreviation:@"UTC"]]; //使用UTC或GMT解决时区相差8小时的问题
+    [comps setTimeZone:[NSTimeZone timeZoneWithAbbreviation:@"UTC"]]; // 使用UTC或GMT解决时区相差8小时的问题
     [comps setDay:[self daysOfMonth]];
     
     return [gregorian dateFromComponents:comps];
@@ -51,7 +51,7 @@
 - (NSDate *)addMonthAndDay:(NSUInteger)months days:(NSUInteger)days {
     NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
     NSDateComponents *comps = [NSDateComponents new];
-    [comps setTimeZone:[NSTimeZone timeZoneWithAbbreviation:@"UTC"]]; //使用UTC或GMT解决时区相差8小时的问题
+    [comps setTimeZone:[NSTimeZone timeZoneWithAbbreviation:@"UTC"]]; // 使用UTC或GMT解决时区相差8小时的问题
     [comps setMonth:months];
     [comps setDay:days];
     
@@ -83,7 +83,7 @@
 
 - (NSString *)weekdayNameCN:(BOOL)isShortName {
     /*
-    //方法一：
+    // 方法一：
     NSArray *arrWeekdayName =
     isShortName
     ? @[ @"周日",
@@ -107,7 +107,7 @@
     return arrWeekdayName[weekday - 1];
      */
     
-    //方法二：
+    // 方法二：
     return [self weekdayName:isShortName localeIdentifier:@"zh_CN"];
 }
 

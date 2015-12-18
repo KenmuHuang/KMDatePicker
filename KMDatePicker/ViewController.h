@@ -10,13 +10,13 @@
 #import "KMDatePicker.h"
 
 @interface ViewController : UIViewController <UITextFieldDelegate, KMDatePickerDelegate>
-@property (strong, nonatomic) UITextField *txtFCurrent;
+@property (nonatomic, strong) UITextField *txtFCurrent;
 
-@property (strong, nonatomic) IBOutlet UITextField *txtFYearMonthDayHourMinute;
-@property (strong, nonatomic) IBOutlet UITextField *txtFMonthDayHourMinute;
-@property (strong, nonatomic) IBOutlet UITextField *txtFYearMonthDay;
-@property (strong, nonatomic) IBOutlet UITextField *txtFHourMinute;
-@property (strong, nonatomic) IBOutlet UITextField *txtFLimitedDate;
+@property (nonatomic, weak) IBOutlet UITextField *txtFYearMonthDayHourMinute;
+@property (nonatomic, weak) IBOutlet UITextField *txtFMonthDayHourMinute;
+@property (nonatomic, weak) IBOutlet UITextField *txtFYearMonthDay;
+@property (nonatomic, weak) IBOutlet UITextField *txtFHourMinute;
+@property (nonatomic, weak) IBOutlet UITextField *txtFLimitedDate;
 
 @end
 

@@ -30,7 +30,7 @@
 - (void)layoutUI {
     CGRect rect = [[UIScreen mainScreen] bounds];
     rect = CGRectMake(0.0, 0.0, rect.size.width, 216.0);
-    //年月日时分
+    // 年月日时分
     KMDatePicker *datePicker = [[KMDatePicker alloc]
                                 initWithFrame:rect
                                 delegate:self
@@ -38,7 +38,7 @@
     _txtFYearMonthDayHourMinute.inputView = datePicker;
     _txtFYearMonthDayHourMinute.delegate = self;
     
-    //年月日
+    // 年月日
     datePicker = [[KMDatePicker alloc]
                   initWithFrame:rect
                   delegate:self
@@ -46,7 +46,7 @@
     _txtFYearMonthDay.inputView = datePicker;
     _txtFYearMonthDay.delegate = self;
     
-    //月日时分
+    // 月日时分
     datePicker = [[KMDatePicker alloc]
                   initWithFrame:rect
                   delegate:self
@@ -54,7 +54,7 @@
     _txtFMonthDayHourMinute.inputView = datePicker;
     _txtFMonthDayHourMinute.delegate = self;
     
-    //时分
+    // 时分
     datePicker = [[KMDatePicker alloc]
                   initWithFrame:rect
                   delegate:self
@@ -62,7 +62,7 @@
     _txtFHourMinute.inputView = datePicker;
     _txtFHourMinute.delegate = self;
     
-    //年月日时分；限制时间范围
+    // 年月日时分；限制时间范围
     datePicker = [[KMDatePicker alloc]
                   initWithFrame:rect
                   delegate:self

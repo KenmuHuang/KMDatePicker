@@ -24,19 +24,19 @@
 @interface KMDatePicker () {
     UIPickerView *pikV;
     
-    //最小和最大限制时间、滚动到指定时间实体对象实例
+    // 最小和最大限制时间、滚动到指定时间实体对象实例
     KMDatePickerDateModel *datePickerDateMinLimited;
     KMDatePickerDateModel *datePickerDateMaxLimited;
     KMDatePickerDateModel *datePickerDateScrollTo;
     
-    //存储时间数据源的数组
+    // 存储时间数据源的数组
     NSMutableArray *mArrYear;
     NSMutableArray *mArrMonth;
     NSMutableArray *mArrDay;
     NSMutableArray *mArrHour;
     NSMutableArray *mArrMinute;
     
-    //时间数据源的数组中，选中元素的索引
+    // 时间数据源的数组中，选中元素的索引
     NSInteger yearIndex;
     NSInteger monthIndex;
     NSInteger dayIndex;
@@ -112,7 +112,7 @@
 }
 
 - (void)loadData {
-    //初始化最小和最大限制时间、滚动到指定时间实体对象实例
+    // 初始化最小和最大限制时间、滚动到指定时间实体对象实例
     if (!_minLimitedDate) {
         _minLimitedDate = [DateHelper dateFromString:kDefaultMinLimitedDate withFormat:nil];
     }
@@ -123,7 +123,7 @@
     }
     datePickerDateMaxLimited = [[KMDatePickerDateModel alloc] initWithDate:_maxLimitedDate];
     
-    //滚动到指定时间；默认值为当前时间。如果是使用自定义时间小于最小限制时间，这时就以最小限制时间为准；如果是使用自定义时间大于最大限制时间，这时就以最大限制时间为准
+    // 滚动到指定时间；默认值为当前时间。如果是使用自定义时间小于最小限制时间，这时就以最小限制时间为准；如果是使用自定义时间大于最大限制时间，这时就以最大限制时间为准
     if (!_scrollToDate) {
         _scrollToDate = [DateHelper localeDate];
     }
@@ -134,33 +134,33 @@
     }
     datePickerDateScrollTo = [[KMDatePickerDateModel alloc] initWithDate:_scrollToDate];
     
-    //初始化存储时间数据源的数组
-    //年
+    // 初始化存储时间数据源的数组
+    // 年
     mArrYear = [NSMutableArray new];
     for (NSInteger beginVal=[datePickerDateMinLimited.year integerValue], endVal=[datePickerDateMaxLimited.year integerValue]; beginVal<=endVal; beginVal++) {
         [mArrYear addObject:[NSString stringWithFormat:@"%ld", (long)beginVal]];
     }
     yearIndex = [datePickerDateScrollTo.year integerValue] - [datePickerDateMinLimited.year integerValue];
     
-    //月
+    // 月
     mArrMonth = [[NSMutableArray alloc] initWithCapacity:kMonthCountOfEveryYear];
     for (NSInteger i=1; i<=kMonthCountOfEveryYear; i++) {
         [mArrMonth addObject:[NSString stringWithFormat:@"%02ld", (long)i]];
     }
     monthIndex = [datePickerDateScrollTo.month integerValue] - 1;
     
-    //日
+    // 日
     [self reloadDayArray];
     dayIndex = [datePickerDateScrollTo.day integerValue] - 1;
     
-    //时
+    // 时
     mArrHour = [[NSMutableArray alloc] initWithCapacity:kHourCountOfEveryDay];
     for (NSInteger i=0; i<kHourCountOfEveryDay; i++) {
         [mArrHour addObject:[NSString stringWithFormat:@"%02ld", (long)i]];
     }
     hourIndex = [datePickerDateScrollTo.hour integerValue];
     
-    //分
+    // 分
     mArrMinute = [[NSMutableArray alloc] initWithCapacity:kMinuteCountOfEveryHour];
     for (NSInteger i=0; i<kMinuteCountOfEveryHour; i++) {
         [mArrMinute addObject:[NSString stringWithFormat:@"%02ld", (long)i]];
@@ -235,7 +235,7 @@
 }
 
 - (void)scrollToNowDateIndexPosition:(UIButton *)sender {
-    //为了区别最大最小限制范围外行的标签颜色，这里需要重新加载所有组件列
+    // 为了区别最大最小限制范围外行的标签颜色，这里需要重新加载所有组件列
     [pikV reloadAllComponents];
     
     _scrollToDate = [DateHelper localeDate];
@@ -353,10 +353,10 @@
 
 #pragma mark - 绘制内容
 - (void)drawRect:(CGRect)rect {
-    //加载数据
+    // 加载数据
     [self loadData];
     
-    //初始化头部按钮（取消、现在时间、确定）
+    // 初始化头部按钮（取消、现在时间、确定）
     UIView *buttonContentView = [[UIView alloc] initWithFrame:CGRectMake(-2.0, 0.0, kWidthOfTotal + 4.0, kHeightOfButtonContentView)];
     buttonContentView.layer.borderColor = [UIColor lightGrayColor].CGColor;
     buttonContentView.layer.borderWidth = 0.5;
@@ -394,7 +394,7 @@
          forControlEvents:UIControlEventTouchUpInside];
     [buttonContentView addSubview:btnConfirm];
     
-    //初始化选择器视图控件
+    // 初始化选择器视图控件
     if (!pikV) {
         pikV = [[UIPickerView alloc]initWithFrame:CGRectMake(0.0, kHeightOfButtonContentView, kWidthOfTotal, self.frame.size.height - kHeightOfButtonContentView)];
         pikV.showsSelectionIndicator = YES;
@@ -404,7 +404,7 @@
     pikV.dataSource = self;
     pikV.delegate = self;
     
-    //初始化滚动到指定时间位置
+    // 初始化滚动到指定时间位置
     [self scrollToDateIndexPosition];
 }
 
@@ -516,12 +516,12 @@
     
     switch (_datePickerStyle) {
         case KMDatePickerStyleYearMonthDayHourMinute: {
-            //规则一：平均宽度 = （总共宽度 - 年份相比多两个数字的宽度 - 分钟会是右对齐导致需偏移宽度来显示「分」这个文字） / 5等份
+            // 规则一：平均宽度 = （总共宽度 - 年份相比多两个数字的宽度 - 分钟会是右对齐导致需偏移宽度来显示「分」这个文字） / 5等份
             widthOfAverage = (kWidthOfTotal - 20.0 - 25.0) / 5;
             switch (component) {
                 case 0:
                     width = widthOfAverage + 20.0;
-                    //规则二：单位标签的 X 坐标位置 = 列的水平居中 X 坐标 ＋ 偏移量
+                    // 规则二：单位标签的 X 坐标位置 = 列的水平居中 X 坐标 ＋ 偏移量
                     [self addUnitLabel:@"年" withPointX:width/2 + 24.0];
                     break;
                 case 1:
@@ -724,7 +724,6 @@
                 if (mArrDay.count-1 < dayIndex) {
                     dayIndex = mArrDay.count-1;
                 }
-                //[pickerView reloadComponent:2];
             }
             break;
         }
@@ -745,7 +744,6 @@
                 if (mArrDay.count-1 < dayIndex) {
                     dayIndex = mArrDay.count-1;
                 }
-                //[pickerView reloadComponent:2];
             }
             break;
         }
@@ -769,7 +767,6 @@
                 if (mArrDay.count-1 < dayIndex) {
                     dayIndex = mArrDay.count-1;
                 }
-                //[pickerView reloadComponent:1];
             }
             break;
         }
@@ -796,10 +793,10 @@
     _scrollToDate = [DateHelper dateFromString:dateStr withFormat:nil];
     datePickerDateScrollTo = [[KMDatePickerDateModel alloc] initWithDate:_scrollToDate];
     
-    //为了区别最大最小限制范围外行的标签颜色，这里需要重新加载所有组件列
+    // 为了区别最大最小限制范围外行的标签颜色，这里需要重新加载所有组件列
     [pickerView reloadAllComponents];
     
-    //如果选择时间不在最小和最大限制时间范围内就回滚
+    // 如果选择时间不在最小和最大限制时间范围内就回滚
     if (![self validatedDate:_scrollToDate]) {
         _scrollToDate = scrollToDateTemp;
         datePickerDateScrollTo = datePickerDateScrollToTemp;
