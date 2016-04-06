@@ -22,43 +22,27 @@
 #define kButtonNormalStatusColor [UIColor colorWithRed:0.0 green:0.5 blue:1.0 alpha:1.0]
 
 @interface KMDatePicker () {
-    UIPickerView *pikV;
+    UIPickerView *_pikV;
     
     // 最小和最大限制时间、滚动到指定时间实体对象实例
-    KMDatePickerDateModel *datePickerDateMinLimited;
-    KMDatePickerDateModel *datePickerDateMaxLimited;
-    KMDatePickerDateModel *datePickerDateScrollTo;
+    KMDatePickerDateModel *_datePickerDateMinLimited;
+    KMDatePickerDateModel *_datePickerDateMaxLimited;
+    KMDatePickerDateModel *_datePickerDateScrollTo;
     
     // 存储时间数据源的数组
-    NSMutableArray *mArrYear;
-    NSMutableArray *mArrMonth;
-    NSMutableArray *mArrDay;
-    NSMutableArray *mArrHour;
-    NSMutableArray *mArrMinute;
+    NSMutableArray *_mArrYear;
+    NSMutableArray *_mArrMonth;
+    NSMutableArray *_mArrDay;
+    NSMutableArray *_mArrHour;
+    NSMutableArray *_mArrMinute;
     
     // 时间数据源的数组中，选中元素的索引
-    NSInteger yearIndex;
-    NSInteger monthIndex;
-    NSInteger dayIndex;
-    NSInteger hourIndex;
-    NSInteger minuteIndex;
+    NSInteger _yearIndex;
+    NSInteger _monthIndex;
+    NSInteger _dayIndex;
+    NSInteger _hourIndex;
+    NSInteger _minuteIndex;
 }
-
-- (void)addUnitLabel:(NSString *)text withPointX:(CGFloat)pointX;
-- (NSUInteger)daysOfMonth;
-- (void)reloadDayArray;
-- (void)loadData;
-- (void)scrollToDateIndexPosition;
-- (void)playDelegateAfterSelectedRow;
-- (BOOL)validatedDate:(NSDate *)date;
-- (BOOL)canShowScrollToNowButton;
-- (void)cancel:(UIButton *)sender;
-- (void)scrollToNowDateIndexPosition:(UIButton *)sender;
-- (void)confirm:(UIButton *)sender;
-- (UIColor *)monthRowTextColor:(NSInteger)row;
-- (UIColor *)dayRowTextColor:(NSInteger)row;
-- (UIColor *)hourRowTextColor:(NSInteger)row;
-- (UIColor *)minuteRowTextColor:(NSInteger)row;
 
 @end
 
@@ -84,9 +68,17 @@
     return [self initWithFrame:frame];
 }
 
+#pragma mark - 重写属性
+- (void)setMinLimitedDate:(NSDate *)minLimitedDate {
+    _minLimitedDate = minLimitedDate;
+    if (_minLimitedDate && !_defaultLimitedDate) {
+        _defaultLimitedDate = _minLimitedDate;
+    }
+}
+
 #pragma mark - 自定义方法
 - (void)addUnitLabel:(NSString *)text withPointX:(CGFloat)pointX {
-    CGFloat pointY = pikV.frame.size.height/2 - 10.0 + kHeightOfButtonContentView;
+    CGFloat pointY = _pikV.frame.size.height/2 - 10.0 + kHeightOfButtonContentView;
     UILabel *lblUnit = [[UILabel alloc] initWithFrame:CGRectMake(pointX, pointY, 20.0, 20.0)];
     lblUnit.text = text;
     lblUnit.textAlignment = NSTextAlignmentCenter;
@@ -100,14 +92,14 @@
 }
 
 - (NSUInteger)daysOfMonth {
-    NSString *dateStr = [NSString stringWithFormat:@"%@-%@-01 00:00", mArrYear[yearIndex], mArrMonth[monthIndex]];
+    NSString *dateStr = [NSString stringWithFormat:@"%@-%@-01 00:00", _mArrYear[_yearIndex], _mArrMonth[_monthIndex]];
     return [[DateHelper dateFromString:dateStr withFormat:@"yyyy-MM-dd HH:mm"] daysOfMonth];
 }
 
 - (void)reloadDayArray {
-    mArrDay = [NSMutableArray new];
+    _mArrDay = [NSMutableArray new];
     for (NSUInteger i=1, len=[self daysOfMonth]; i<=len; i++) {
-        [mArrDay addObject:[NSString stringWithFormat:@"%02ld", (long)i]];
+        [_mArrDay addObject:[NSString stringWithFormat:@"%02ld", (long)i]];
     }
 }
 
@@ -116,12 +108,12 @@
     if (!_minLimitedDate) {
         _minLimitedDate = [DateHelper dateFromString:kDefaultMinLimitedDate withFormat:nil];
     }
-    datePickerDateMinLimited = [[KMDatePickerDateModel alloc] initWithDate:_minLimitedDate];
+    _datePickerDateMinLimited = [[KMDatePickerDateModel alloc] initWithDate:_minLimitedDate];
     
     if (!_maxLimitedDate) {
         _maxLimitedDate = [DateHelper dateFromString:kDefaultMaxLimitedDate withFormat:nil];
     }
-    datePickerDateMaxLimited = [[KMDatePickerDateModel alloc] initWithDate:_maxLimitedDate];
+    _datePickerDateMaxLimited = [[KMDatePickerDateModel alloc] initWithDate:_maxLimitedDate];
     
     // 滚动到指定时间；默认值为当前时间。如果是使用自定义时间小于最小限制时间，这时就以最小限制时间为准；如果是使用自定义时间大于最大限制时间，这时就以最大限制时间为准
     if (!_scrollToDate) {
@@ -132,40 +124,40 @@
     } else if ([_scrollToDate compare:_maxLimitedDate] == NSOrderedDescending) {
         _scrollToDate = _maxLimitedDate;
     }
-    datePickerDateScrollTo = [[KMDatePickerDateModel alloc] initWithDate:_scrollToDate];
+    _datePickerDateScrollTo = [[KMDatePickerDateModel alloc] initWithDate:_scrollToDate];
     
     // 初始化存储时间数据源的数组
     // 年
-    mArrYear = [NSMutableArray new];
-    for (NSInteger beginVal=[datePickerDateMinLimited.year integerValue], endVal=[datePickerDateMaxLimited.year integerValue]; beginVal<=endVal; beginVal++) {
-        [mArrYear addObject:[NSString stringWithFormat:@"%ld", (long)beginVal]];
+    _mArrYear = [NSMutableArray new];
+    for (NSInteger beginVal=[_datePickerDateMinLimited.year integerValue], endVal=[_datePickerDateMaxLimited.year integerValue]; beginVal<=endVal; beginVal++) {
+        [_mArrYear addObject:[NSString stringWithFormat:@"%ld", (long)beginVal]];
     }
-    yearIndex = [datePickerDateScrollTo.year integerValue] - [datePickerDateMinLimited.year integerValue];
+    _yearIndex = [_datePickerDateScrollTo.year integerValue] - [_datePickerDateMinLimited.year integerValue];
     
     // 月
-    mArrMonth = [[NSMutableArray alloc] initWithCapacity:kMonthCountOfEveryYear];
+    _mArrMonth = [[NSMutableArray alloc] initWithCapacity:kMonthCountOfEveryYear];
     for (NSInteger i=1; i<=kMonthCountOfEveryYear; i++) {
-        [mArrMonth addObject:[NSString stringWithFormat:@"%02ld", (long)i]];
+        [_mArrMonth addObject:[NSString stringWithFormat:@"%02ld", (long)i]];
     }
-    monthIndex = [datePickerDateScrollTo.month integerValue] - 1;
+    _monthIndex = [_datePickerDateScrollTo.month integerValue] - 1;
     
     // 日
     [self reloadDayArray];
-    dayIndex = [datePickerDateScrollTo.day integerValue] - 1;
+    _dayIndex = [_datePickerDateScrollTo.day integerValue] - 1;
     
     // 时
-    mArrHour = [[NSMutableArray alloc] initWithCapacity:kHourCountOfEveryDay];
+    _mArrHour = [[NSMutableArray alloc] initWithCapacity:kHourCountOfEveryDay];
     for (NSInteger i=0; i<kHourCountOfEveryDay; i++) {
-        [mArrHour addObject:[NSString stringWithFormat:@"%02ld", (long)i]];
+        [_mArrHour addObject:[NSString stringWithFormat:@"%02ld", (long)i]];
     }
-    hourIndex = [datePickerDateScrollTo.hour integerValue];
+    _hourIndex = [_datePickerDateScrollTo.hour integerValue];
     
     // 分
-    mArrMinute = [[NSMutableArray alloc] initWithCapacity:kMinuteCountOfEveryHour];
+    _mArrMinute = [[NSMutableArray alloc] initWithCapacity:kMinuteCountOfEveryHour];
     for (NSInteger i=0; i<kMinuteCountOfEveryHour; i++) {
-        [mArrMinute addObject:[NSString stringWithFormat:@"%02ld", (long)i]];
+        [_mArrMinute addObject:[NSString stringWithFormat:@"%02ld", (long)i]];
     }
-    minuteIndex = [datePickerDateScrollTo.minute integerValue];
+    _minuteIndex = [_datePickerDateScrollTo.minute integerValue];
 }
 
 - (void)scrollToDateIndexPosition {
@@ -173,52 +165,52 @@
     switch (_datePickerStyle) {
         case KMDatePickerStyleYearMonthDayHourMinute: {
             arrIndex = @[
-                         [NSNumber numberWithInteger:yearIndex],
-                         [NSNumber numberWithInteger:monthIndex],
-                         [NSNumber numberWithInteger:dayIndex],
-                         [NSNumber numberWithInteger:hourIndex],
-                         [NSNumber numberWithInteger:minuteIndex]
+                         [NSNumber numberWithInteger:_yearIndex],
+                         [NSNumber numberWithInteger:_monthIndex],
+                         [NSNumber numberWithInteger:_dayIndex],
+                         [NSNumber numberWithInteger:_hourIndex],
+                         [NSNumber numberWithInteger:_minuteIndex]
                          ];
             break;
         }
         case KMDatePickerStyleYearMonthDay: {
             arrIndex = @[
-                         [NSNumber numberWithInteger:yearIndex],
-                         [NSNumber numberWithInteger:monthIndex],
-                         [NSNumber numberWithInteger:dayIndex]
+                         [NSNumber numberWithInteger:_yearIndex],
+                         [NSNumber numberWithInteger:_monthIndex],
+                         [NSNumber numberWithInteger:_dayIndex]
                          ];
             break;
         }
         case KMDatePickerStyleMonthDayHourMinute: {
             arrIndex = @[
-                         [NSNumber numberWithInteger:monthIndex],
-                         [NSNumber numberWithInteger:dayIndex],
-                         [NSNumber numberWithInteger:hourIndex],
-                         [NSNumber numberWithInteger:minuteIndex]
+                         [NSNumber numberWithInteger:_monthIndex],
+                         [NSNumber numberWithInteger:_dayIndex],
+                         [NSNumber numberWithInteger:_hourIndex],
+                         [NSNumber numberWithInteger:_minuteIndex]
                          ];
             break;
         }
         case KMDatePickerStyleHourMinute: {
             arrIndex = @[
-                         [NSNumber numberWithInteger:hourIndex],
-                         [NSNumber numberWithInteger:minuteIndex]
+                         [NSNumber numberWithInteger:_hourIndex],
+                         [NSNumber numberWithInteger:_minuteIndex]
                          ];
             break;
         }
     }
 
     for (NSUInteger i=0, len=arrIndex.count; i<len; i++) {
-        [pikV selectRow:[arrIndex[i] integerValue] inComponent:i animated:YES];
+        [_pikV selectRow:[arrIndex[i] integerValue] inComponent:i animated:YES];
     }
 }
 
 - (BOOL)validatedDate:(NSDate *)date {
     NSString *minDateStr = [NSString stringWithFormat:@"%@-%@-%@ %@:%@",
-                            datePickerDateMinLimited.year,
-                            datePickerDateMinLimited.month,
-                            datePickerDateMinLimited.day,
-                            datePickerDateMinLimited.hour,
-                            datePickerDateMinLimited.minute
+                            _datePickerDateMinLimited.year,
+                            _datePickerDateMinLimited.month,
+                            _datePickerDateMinLimited.day,
+                            _datePickerDateMinLimited.hour,
+                            _datePickerDateMinLimited.minute
                             ];
     
     return !([date compare:[DateHelper dateFromString:minDateStr withFormat:nil]] == NSOrderedAscending ||
@@ -235,16 +227,20 @@
 }
 
 - (void)scrollToNowDateIndexPosition:(UIButton *)sender {
+    [self scrollToDateIndexPositionWithDate:[DateHelper localeDate]];
+}
+
+- (void)scrollToDateIndexPositionWithDate:(NSDate *)date {
     // 为了区别最大最小限制范围外行的标签颜色，这里需要重新加载所有组件列
-    [pikV reloadAllComponents];
+    [_pikV reloadAllComponents];
     
-    _scrollToDate = [DateHelper localeDate];
-    datePickerDateScrollTo = [[KMDatePickerDateModel alloc] initWithDate:_scrollToDate];
-    yearIndex = [datePickerDateScrollTo.year integerValue] - [datePickerDateMinLimited.year integerValue];
-    monthIndex = [datePickerDateScrollTo.month integerValue] - 1;
-    dayIndex = [datePickerDateScrollTo.day integerValue] - 1;
-    hourIndex = [datePickerDateScrollTo.hour integerValue];
-    minuteIndex = [datePickerDateScrollTo.minute integerValue];
+    _scrollToDate = date;
+    _datePickerDateScrollTo = [[KMDatePickerDateModel alloc] initWithDate:_scrollToDate];
+    _yearIndex = [_datePickerDateScrollTo.year integerValue] - [_datePickerDateMinLimited.year integerValue];
+    _monthIndex = [_datePickerDateScrollTo.month integerValue] - 1;
+    _dayIndex = [_datePickerDateScrollTo.day integerValue] - 1;
+    _hourIndex = [_datePickerDateScrollTo.hour integerValue];
+    _minuteIndex = [_datePickerDateScrollTo.minute integerValue];
     [self scrollToDateIndexPosition];
 }
 
@@ -257,14 +253,14 @@
 - (UIColor *)monthRowTextColor:(NSInteger)row {
     UIColor *color = kRowNormalStatusColor;
     NSString *dateStr = [NSString stringWithFormat:@"%@-%@-01 00:00",
-                         mArrYear[yearIndex],
-                         mArrMonth[row]
+                         _mArrYear[_yearIndex],
+                         _mArrMonth[row]
                          ];
     NSDate *date = [DateHelper dateFromString:dateStr withFormat:nil];
     
     NSString *minDateStr = [NSString stringWithFormat:@"%@-%@-01 00:00",
-                         datePickerDateMinLimited.year,
-                         datePickerDateMinLimited.month
+                         _datePickerDateMinLimited.year,
+                         _datePickerDateMinLimited.month
                          ];
     
     if ([date compare:[DateHelper dateFromString:minDateStr withFormat:nil]] == NSOrderedAscending ||
@@ -278,16 +274,16 @@
 - (UIColor *)dayRowTextColor:(NSInteger)row {
     UIColor *color = kRowNormalStatusColor;
     NSString *dateStr = [NSString stringWithFormat:@"%@-%@-%@ 00:00",
-                         mArrYear[yearIndex],
-                         mArrMonth[monthIndex],
-                         mArrDay[row]
+                         _mArrYear[_yearIndex],
+                         _mArrMonth[_monthIndex],
+                         _mArrDay[row]
                          ];
     NSDate *date = [DateHelper dateFromString:dateStr withFormat:nil];
     
     NSString *minDateStr = [NSString stringWithFormat:@"%@-%@-%@ 00:00",
-                            datePickerDateMinLimited.year,
-                            datePickerDateMinLimited.month,
-                            datePickerDateMinLimited.day
+                            _datePickerDateMinLimited.year,
+                            _datePickerDateMinLimited.month,
+                            _datePickerDateMinLimited.day
                             ];
     
     if ([date compare:[DateHelper dateFromString:minDateStr withFormat:nil]] == NSOrderedAscending ||
@@ -301,18 +297,18 @@
 - (UIColor *)hourRowTextColor:(NSInteger)row {
     UIColor *color = kRowNormalStatusColor;
     NSString *dateStr = [NSString stringWithFormat:@"%@-%@-%@ %@:00",
-                         mArrYear[yearIndex],
-                         mArrMonth[monthIndex],
-                         mArrDay[dayIndex],
-                         mArrHour[row]
+                         _mArrYear[_yearIndex],
+                         _mArrMonth[_monthIndex],
+                         _mArrDay[_dayIndex],
+                         _mArrHour[row]
                          ];
     NSDate *date = [DateHelper dateFromString:dateStr withFormat:nil];
     
     NSString *minDateStr = [NSString stringWithFormat:@"%@-%@-%@ %@:00",
-                            datePickerDateMinLimited.year,
-                            datePickerDateMinLimited.month,
-                            datePickerDateMinLimited.day,
-                            datePickerDateMinLimited.hour
+                            _datePickerDateMinLimited.year,
+                            _datePickerDateMinLimited.month,
+                            _datePickerDateMinLimited.day,
+                            _datePickerDateMinLimited.hour
                             ];
     
     if ([date compare:[DateHelper dateFromString:minDateStr withFormat:nil]] == NSOrderedAscending ||
@@ -327,20 +323,20 @@
     NSString *format = @"yyyy-MM-dd HH:mm:ss";
     UIColor *color = kRowNormalStatusColor;
     NSString *dateStr = [NSString stringWithFormat:@"%@-%@-%@ %@:%@:00",
-                         mArrYear[yearIndex],
-                         mArrMonth[monthIndex],
-                         mArrDay[dayIndex],
-                         mArrHour[hourIndex],
-                         mArrMinute[row]
+                         _mArrYear[_yearIndex],
+                         _mArrMonth[_monthIndex],
+                         _mArrDay[_dayIndex],
+                         _mArrHour[_hourIndex],
+                         _mArrMinute[row]
                          ];
     NSDate *date = [DateHelper dateFromString:dateStr withFormat:format];
     
     NSString *minDateStr = [NSString stringWithFormat:@"%@-%@-%@ %@:%@:00",
-                            datePickerDateMinLimited.year,
-                            datePickerDateMinLimited.month,
-                            datePickerDateMinLimited.day,
-                            datePickerDateMinLimited.hour,
-                            datePickerDateMinLimited.minute
+                            _datePickerDateMinLimited.year,
+                            _datePickerDateMinLimited.month,
+                            _datePickerDateMinLimited.day,
+                            _datePickerDateMinLimited.hour,
+                            _datePickerDateMinLimited.minute
                             ];
     
     if ([date compare:[DateHelper dateFromString:minDateStr withFormat:format]] == NSOrderedAscending ||
@@ -395,14 +391,14 @@
     [buttonContentView addSubview:btnConfirm];
     
     // 初始化选择器视图控件
-    if (!pikV) {
-        pikV = [[UIPickerView alloc]initWithFrame:CGRectMake(0.0, kHeightOfButtonContentView, kWidthOfTotal, self.frame.size.height - kHeightOfButtonContentView)];
-        pikV.showsSelectionIndicator = YES;
-        pikV.backgroundColor = [UIColor clearColor];
-        [self addSubview:pikV];
+    if (!_pikV) {
+        _pikV = [[UIPickerView alloc]initWithFrame:CGRectMake(0.0, kHeightOfButtonContentView, kWidthOfTotal, self.frame.size.height - kHeightOfButtonContentView)];
+        _pikV.showsSelectionIndicator = YES;
+        _pikV.backgroundColor = [UIColor clearColor];
+        [self addSubview:_pikV];
     }
-    pikV.dataSource = self;
-    pikV.delegate = self;
+    _pikV.dataSource = self;
+    _pikV.delegate = self;
     
     // 初始化滚动到指定时间位置
     [self scrollToDateIndexPosition];
@@ -412,7 +408,7 @@
 - (void)playDelegateAfterSelectedRow {
     if ([self.delegate respondsToSelector:@selector(datePicker:didSelectDate:)]) {
         [self.delegate datePicker:self
-                    didSelectDate:datePickerDateScrollTo];
+                    didSelectDate:_datePickerDateScrollTo];
     }
 }
 
@@ -446,7 +442,7 @@
         case KMDatePickerStyleYearMonthDayHourMinute: {
             switch (component) {
                 case 0:
-                    numberOfRows = mArrYear.count;
+                    numberOfRows = _mArrYear.count;
                     break;
                 case 1:
                     numberOfRows = kMonthCountOfEveryYear;
@@ -466,7 +462,7 @@
         case KMDatePickerStyleYearMonthDay: {
             switch (component) {
                 case 0:
-                    numberOfRows = mArrYear.count;
+                    numberOfRows = _mArrYear.count;
                     break;
                 case 1:
                     numberOfRows = kMonthCountOfEveryYear;
@@ -619,22 +615,22 @@
         case KMDatePickerStyleYearMonthDayHourMinute: {
             switch (component) {
                 case 0:
-                    text = mArrYear[row];
+                    text = _mArrYear[row];
                     break;
                 case 1:
-                    text = mArrMonth[row];
+                    text = _mArrMonth[row];
                     textColor = [self monthRowTextColor:row];
                     break;
                 case 2:
-                    text = mArrDay[row];
+                    text = _mArrDay[row];
                     textColor = [self dayRowTextColor:row];
                     break;
                 case 3:
-                    text = mArrHour[row];
+                    text = _mArrHour[row];
                     textColor = [self hourRowTextColor:row];
                     break;
                 case 4:
-                    text = mArrMinute[row];
+                    text = _mArrMinute[row];
                     textColor = [self minuteRowTextColor:row];
                     break;
             }
@@ -643,14 +639,14 @@
         case KMDatePickerStyleYearMonthDay: {
             switch (component) {
                 case 0:
-                    text = mArrYear[row];
+                    text = _mArrYear[row];
                     break;
                 case 1:
-                    text = mArrMonth[row];
+                    text = _mArrMonth[row];
                     textColor = [self monthRowTextColor:row];
                     break;
                 case 2:
-                    text = mArrDay[row];
+                    text = _mArrDay[row];
                     textColor = [self dayRowTextColor:row];
                     break;
             }
@@ -659,19 +655,19 @@
         case KMDatePickerStyleMonthDayHourMinute: {
             switch (component) {
                 case 0:
-                    text = mArrMonth[row];
+                    text = _mArrMonth[row];
                     textColor = [self monthRowTextColor:row];
                     break;
                 case 1:
-                    text = mArrDay[row];
+                    text = _mArrDay[row];
                     textColor = [self dayRowTextColor:row];
                     break;
                 case 2:
-                    text = mArrHour[row];
+                    text = _mArrHour[row];
                     textColor = [self hourRowTextColor:row];
                     break;
                 case 3:
-                    text = mArrMinute[row];
+                    text = _mArrMinute[row];
                     textColor = [self minuteRowTextColor:row];
                     break;
             }
@@ -680,11 +676,11 @@
         case KMDatePickerStyleHourMinute: {
             switch (component) {
                 case 0:
-                    text = mArrHour[row];
+                    text = _mArrHour[row];
                     textColor = [self hourRowTextColor:row];
                     break;
                 case 1:
-                    text = mArrMinute[row];
+                    text = _mArrMinute[row];
                     textColor = [self minuteRowTextColor:row];
                     break;
             }
@@ -697,32 +693,29 @@
 }
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
-    NSDate *scrollToDateTemp = _scrollToDate;
-    KMDatePickerDateModel *datePickerDateScrollToTemp = datePickerDateScrollTo;
-    
     switch (_datePickerStyle) {
         case KMDatePickerStyleYearMonthDayHourMinute: {
             switch (component) {
                 case 0:
-                    yearIndex = row;
+                    _yearIndex = row;
                     break;
                 case 1:
-                    monthIndex = row;
+                    _monthIndex = row;
                     break;
                 case 2:
-                    dayIndex = row;
+                    _dayIndex = row;
                     break;
                 case 3:
-                    hourIndex = row;
+                    _hourIndex = row;
                     break;
                 case 4:
-                    minuteIndex = row;
+                    _minuteIndex = row;
                     break;
             }
             if (component == 0 || component == 1) {
                 [self reloadDayArray];
-                if (mArrDay.count-1 < dayIndex) {
-                    dayIndex = mArrDay.count-1;
+                if (_mArrDay.count-1 < _dayIndex) {
+                    _dayIndex = _mArrDay.count-1;
                 }
             }
             break;
@@ -730,19 +723,19 @@
         case KMDatePickerStyleYearMonthDay: {
             switch (component) {
                 case 0:
-                    yearIndex = row;
+                    _yearIndex = row;
                     break;
                 case 1:
-                    monthIndex = row;
+                    _monthIndex = row;
                     break;
                 case 2:
-                    dayIndex = row;
+                    _dayIndex = row;
                     break;
             }
             if (component == 0 || component == 1) {
                 [self reloadDayArray];
-                if (mArrDay.count-1 < dayIndex) {
-                    dayIndex = mArrDay.count-1;
+                if (_mArrDay.count-1 < _dayIndex) {
+                    _dayIndex = _mArrDay.count-1;
                 }
             }
             break;
@@ -750,22 +743,22 @@
         case KMDatePickerStyleMonthDayHourMinute: {
             switch (component) {
                 case 0:
-                    monthIndex = row;
+                    _monthIndex = row;
                     break;
                 case 1:
-                    dayIndex = row;
+                    _dayIndex = row;
                     break;
                 case 2:
-                    hourIndex = row;
+                    _hourIndex = row;
                     break;
                 case 3:
-                    minuteIndex = row;
+                    _minuteIndex = row;
                     break;
             }
             if (component == 0) {
                 [self reloadDayArray];
-                if (mArrDay.count-1 < dayIndex) {
-                    dayIndex = mArrDay.count-1;
+                if (_mArrDay.count-1 < _dayIndex) {
+                    _dayIndex = _mArrDay.count-1;
                 }
             }
             break;
@@ -773,10 +766,10 @@
         case KMDatePickerStyleHourMinute: {
             switch (component) {
                 case 0:
-                    hourIndex = row;
+                    _hourIndex = row;
                     break;
                 case 1:
-                    minuteIndex = row;
+                    _minuteIndex = row;
                     break;
             }
             break;
@@ -784,28 +777,21 @@
     }
     
     NSString *dateStr = [NSString stringWithFormat:@"%@-%@-%@ %@:%@",
-                         mArrYear[yearIndex],
-                         mArrMonth[monthIndex],
-                         mArrDay[dayIndex],
-                         mArrHour[hourIndex],
-                         mArrMinute[minuteIndex]
+                         _mArrYear[_yearIndex],
+                         _mArrMonth[_monthIndex],
+                         _mArrDay[_dayIndex],
+                         _mArrHour[_hourIndex],
+                         _mArrMinute[_minuteIndex]
                          ];
     _scrollToDate = [DateHelper dateFromString:dateStr withFormat:nil];
-    datePickerDateScrollTo = [[KMDatePickerDateModel alloc] initWithDate:_scrollToDate];
+    _datePickerDateScrollTo = [[KMDatePickerDateModel alloc] initWithDate:_scrollToDate];
     
     // 为了区别最大最小限制范围外行的标签颜色，这里需要重新加载所有组件列
     [pickerView reloadAllComponents];
     
-    // 如果选择时间不在最小和最大限制时间范围内就回滚
+    // 如果选择时间不在最小和最大限制时间范围内就滚动到有效的默认范围内
     if (![self validatedDate:_scrollToDate]) {
-        _scrollToDate = scrollToDateTemp;
-        datePickerDateScrollTo = datePickerDateScrollToTemp;
-        yearIndex = [datePickerDateScrollTo.year integerValue] - [datePickerDateMinLimited.year integerValue];
-        monthIndex = [datePickerDateScrollTo.month integerValue] - 1;
-        dayIndex = [datePickerDateScrollTo.day integerValue] - 1;
-        hourIndex = [datePickerDateScrollTo.hour integerValue];
-        minuteIndex = [datePickerDateScrollTo.minute integerValue];
-        [self scrollToDateIndexPosition];
+        [self scrollToDateIndexPositionWithDate:_defaultLimitedDate];
     }
 }
 
