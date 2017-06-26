@@ -790,7 +790,7 @@
     [pickerView reloadAllComponents];
     
     // 如果选择时间不在最小和最大限制时间范围内就滚动到有效的默认范围内
-    if (![self validatedDate:_scrollToDate]) {
+    if (!_scrollToDate || ![self validatedDate:_scrollToDate]) {
         [self scrollToDateIndexPositionWithDate:_defaultLimitedDate];
     }
 }
