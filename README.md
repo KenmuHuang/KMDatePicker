@@ -17,15 +17,15 @@
 
 iPhone 5s
 
- ![ScreenShot_iPhone 5s](https://github.com/KenmuHuang/KMDatePicker/blob/master/ScreenShot/ScreenShot_iPhone 5s.gif)
+ ![ScreenShot_iPhone_5s](https://github.com/KenmuHuang/KMDatePicker/blob/master/ScreenShot/ScreenShot_iPhone_5s.gif)
 
 iPhone 6
 
- ![ScreenShot_iPhone 6](https://github.com/KenmuHuang/KMDatePicker/blob/master/ScreenShot/ScreenShot_iPhone 6.gif)
+ ![ScreenShot_iPhone_6](https://github.com/KenmuHuang/KMDatePicker/blob/master/ScreenShot/ScreenShot_iPhone_6.gif)
 
 iPhone 6 Plus
 
- ![ScreenShot_iPhone 6 Plus](https://github.com/KenmuHuang/KMDatePicker/blob/master/ScreenShot/ScreenShot_iPhone 6 Plus.gif)
+ ![ScreenShot_iPhone_6Plus](https://github.com/KenmuHuang/KMDatePicker/blob/master/ScreenShot/ScreenShot_iPhone_6Plus.gif)
 
 
 
