@@ -23,7 +23,7 @@
         _day = [dateStr substringWithRange:NSMakeRange(6, 2)];
         _hour = [dateStr substringWithRange:NSMakeRange(8, 2)];
         _minute = [dateStr substringWithRange:NSMakeRange(10, 2)];
-        _weekdayName = [date weekdayNameCN:YES];
+        _weekdayName = [date km_weekdayNameCN:YES];
     }
     return self;
 }

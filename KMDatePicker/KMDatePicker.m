@@ -93,7 +93,7 @@
 
 - (NSUInteger)daysOfMonth {
     NSString *dateStr = [NSString stringWithFormat:@"%@-%@-01 00:00", _mArrYear[_yearIndex], _mArrMonth[_monthIndex]];
-    return [[DateHelper dateFromString:dateStr withFormat:@"yyyy-MM-dd HH:mm"] daysOfMonth];
+    return [[DateHelper dateFromString:dateStr withFormat:@"yyyy-MM-dd HH:mm"] km_daysOfMonth];
 }
 
 - (void)reloadDayArray {
@@ -198,7 +198,7 @@
             break;
         }
     }
-
+    
     for (NSUInteger i=0, len=arrIndex.count; i<len; i++) {
         [_pikV selectRow:[arrIndex[i] integerValue] inComponent:i animated:YES];
     }
@@ -259,9 +259,9 @@
     NSDate *date = [DateHelper dateFromString:dateStr withFormat:nil];
     
     NSString *minDateStr = [NSString stringWithFormat:@"%@-%@-01 00:00",
-                         _datePickerDateMinLimited.year,
-                         _datePickerDateMinLimited.month
-                         ];
+                            _datePickerDateMinLimited.year,
+                            _datePickerDateMinLimited.month
+                            ];
     
     if ([date compare:[DateHelper dateFromString:minDateStr withFormat:nil]] == NSOrderedAscending ||
         [date compare:_maxLimitedDate] == NSOrderedDescending) {
@@ -796,3 +796,4 @@
 }
 
 @end
+
