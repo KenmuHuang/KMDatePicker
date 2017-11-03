@@ -95,8 +95,8 @@ iPhone 6 Plus
                   initWithFrame:rect
                   delegate:self
                   datePickerStyle:KMDatePickerStyleYearMonthDayHourMinute];
-    datePicker.minLimitedDate = [[DateHelper localeDate] addMonthAndDay:-24 days:0];
-    datePicker.maxLimitedDate = [datePicker.minLimitedDate addMonthAndDay:48 days:0];
+    datePicker.minLimitedDate = [[DateHelper localeDate] km_addMonthAndDay:-24 days:0];
+    datePicker.maxLimitedDate = [datePicker.minLimitedDate km_addMonthAndDay:48 days:0];
     _txtFLimitedDate.inputView = datePicker;
     _txtFLimitedDate.delegate = self;
 }
