@@ -93,7 +93,7 @@
 
 - (NSUInteger)daysOfMonth {
     NSString *dateStr = [NSString stringWithFormat:@"%@-%@-01 00:00", _mArrYear[_yearIndex], _mArrMonth[_monthIndex]];
-    return [[DateHelper dateFromString:dateStr withFormat:@"yyyy-MM-dd HH:mm"] km_daysOfMonth];
+    return [[DateHelper dateFromString:dateStr format:@"yyyy-MM-dd HH:mm"] km_daysOfMonth];
 }
 
 - (void)reloadDayArray {
@@ -106,12 +106,12 @@
 - (void)loadData {
     // 初始化最小和最大限制时间、滚动到指定时间实体对象实例
     if (!_minLimitedDate) {
-        _minLimitedDate = [DateHelper dateFromString:kDefaultMinLimitedDate withFormat:nil];
+        _minLimitedDate = [DateHelper dateFromString:kDefaultMinLimitedDate format:nil];
     }
     _datePickerDateMinLimited = [[KMDatePickerDateModel alloc] initWithDate:_minLimitedDate];
     
     if (!_maxLimitedDate) {
-        _maxLimitedDate = [DateHelper dateFromString:kDefaultMaxLimitedDate withFormat:nil];
+        _maxLimitedDate = [DateHelper dateFromString:kDefaultMaxLimitedDate format:nil];
     }
     _datePickerDateMaxLimited = [[KMDatePickerDateModel alloc] initWithDate:_maxLimitedDate];
     
@@ -213,7 +213,7 @@
                             _datePickerDateMinLimited.minute
                             ];
     
-    return !([date compare:[DateHelper dateFromString:minDateStr withFormat:nil]] == NSOrderedAscending ||
+    return !([date compare:[DateHelper dateFromString:minDateStr format:nil]] == NSOrderedAscending ||
              [date compare:_maxLimitedDate] == NSOrderedDescending);
 }
 
@@ -256,14 +256,14 @@
                          _mArrYear[_yearIndex],
                          _mArrMonth[row]
                          ];
-    NSDate *date = [DateHelper dateFromString:dateStr withFormat:nil];
+    NSDate *date = [DateHelper dateFromString:dateStr format:nil];
     
     NSString *minDateStr = [NSString stringWithFormat:@"%@-%@-01 00:00",
                             _datePickerDateMinLimited.year,
                             _datePickerDateMinLimited.month
                             ];
     
-    if ([date compare:[DateHelper dateFromString:minDateStr withFormat:nil]] == NSOrderedAscending ||
+    if ([date compare:[DateHelper dateFromString:minDateStr format:nil]] == NSOrderedAscending ||
         [date compare:_maxLimitedDate] == NSOrderedDescending) {
         color = kRowDisabledStatusColor;
     }
@@ -278,7 +278,7 @@
                          _mArrMonth[_monthIndex],
                          _mArrDay[row]
                          ];
-    NSDate *date = [DateHelper dateFromString:dateStr withFormat:nil];
+    NSDate *date = [DateHelper dateFromString:dateStr format:nil];
     
     NSString *minDateStr = [NSString stringWithFormat:@"%@-%@-%@ 00:00",
                             _datePickerDateMinLimited.year,
@@ -286,7 +286,7 @@
                             _datePickerDateMinLimited.day
                             ];
     
-    if ([date compare:[DateHelper dateFromString:minDateStr withFormat:nil]] == NSOrderedAscending ||
+    if ([date compare:[DateHelper dateFromString:minDateStr format:nil]] == NSOrderedAscending ||
         [date compare:_maxLimitedDate] == NSOrderedDescending) {
         color = kRowDisabledStatusColor;
     }
@@ -302,7 +302,7 @@
                          _mArrDay[_dayIndex],
                          _mArrHour[row]
                          ];
-    NSDate *date = [DateHelper dateFromString:dateStr withFormat:nil];
+    NSDate *date = [DateHelper dateFromString:dateStr format:nil];
     
     NSString *minDateStr = [NSString stringWithFormat:@"%@-%@-%@ %@:00",
                             _datePickerDateMinLimited.year,
@@ -311,7 +311,7 @@
                             _datePickerDateMinLimited.hour
                             ];
     
-    if ([date compare:[DateHelper dateFromString:minDateStr withFormat:nil]] == NSOrderedAscending ||
+    if ([date compare:[DateHelper dateFromString:minDateStr format:nil]] == NSOrderedAscending ||
         [date compare:_maxLimitedDate] == NSOrderedDescending) {
         color = kRowDisabledStatusColor;
     }
@@ -329,7 +329,7 @@
                          _mArrHour[_hourIndex],
                          _mArrMinute[row]
                          ];
-    NSDate *date = [DateHelper dateFromString:dateStr withFormat:format];
+    NSDate *date = [DateHelper dateFromString:dateStr format:format];
     
     NSString *minDateStr = [NSString stringWithFormat:@"%@-%@-%@ %@:%@:00",
                             _datePickerDateMinLimited.year,
@@ -339,7 +339,7 @@
                             _datePickerDateMinLimited.minute
                             ];
     
-    if ([date compare:[DateHelper dateFromString:minDateStr withFormat:format]] == NSOrderedAscending ||
+    if ([date compare:[DateHelper dateFromString:minDateStr format:format]] == NSOrderedAscending ||
         [date compare:_maxLimitedDate] == NSOrderedDescending) {
         color = kRowDisabledStatusColor;
     }
@@ -783,7 +783,7 @@
                          _mArrHour[_hourIndex],
                          _mArrMinute[_minuteIndex]
                          ];
-    _scrollToDate = [DateHelper dateFromString:dateStr withFormat:nil];
+    _scrollToDate = [DateHelper dateFromString:dateStr format:nil];
     _datePickerDateScrollTo = [[KMDatePickerDateModel alloc] initWithDate:_scrollToDate];
     
     // 为了区别最大最小限制范围外行的标签颜色，这里需要重新加载所有组件列
